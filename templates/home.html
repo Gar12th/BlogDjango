@@ -3,9 +3,15 @@
  
 {% block content %}
   {% for post in object_list %}
-  <div class="post-entry">
-    <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
-    <p>{{ post.body }}</p>
-  </div>
+  <article class="article">
+	<div class="article__image" style="background-image: url(/media/images/post-image.jpg);"></div>
+	<div class="article__info">
+	  <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+	  <div class="article__info__meta">
+		<small>Категория: <a href="#">Программирование</a></small>
+	  </div>
+	  <div class="article__info__preview">{{ post.body }}</div>
+	</div>
+  </article>
   {% endfor %}
 {% endblock content %}
